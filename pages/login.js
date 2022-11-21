@@ -1,9 +1,7 @@
-import Navbar from '../components/UI/Navbar'
+import Navbar from '../components/UI/Navbar';
 
 const Login = () => {
-  return (
-    <div><Navbar /></div>
-  )
-}
+	return <div></div>;
+};
 
-export default Login  
+export default Login;
