@@ -56,7 +56,7 @@ const Home = () => {
 						<hr />
 					</div>
 					<div
-						className='p-2 flex flex-col text-center cursor-pointer border rounded-2xl justify-center items-center bg-blue-200'
+						className='p-2 flex flex-col text-center cursor-pointer border rounded-2xl justify-center items-center bg-blue-200 hover:bg-blue-300'
 						onClick={() => signIn()}
 					>
 						<p>Sign in with:</p>
