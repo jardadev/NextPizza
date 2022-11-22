@@ -8,7 +8,7 @@ const Navbar = ({ children }) => {
 
 	return (
 		<div className='h-screen flex flex-col'>
-			<div className='flex justify-between flex-row items-center'>
+			<div className='flex justify-between flex-row items-center p-3'>
 				<>
 					<h1 className='text-2xl'>Pizza Time</h1>
 				</>
@@ -26,7 +26,7 @@ const Navbar = ({ children }) => {
 						router.pathname === '/register' && (
 							<Link
 								className='underline text-blue-500 '
-								href={'/register'}
+								href={'/'}
 							>
 								Already have an Account? Sign in.
 							</Link>

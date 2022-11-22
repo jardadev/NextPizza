@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const PageNav = ({  }) => {
+const PageNav = ({}) => {
 	const router = useRouter();
 	return (
 		<div className='gap-3 m-2 flex flex-row justify-between items-center rounded border-2 border-gray-500'>
@@ -39,7 +39,7 @@ const PageNav = ({  }) => {
 						: 'hover:bg-blue-300'
 				}
 			>
-				<Link href={'/api/auth/logout'}>Logout</Link>
+				<Link href={'/api/auth/signout'}>Logout</Link>
 			</div>
 		</div>
 	);
