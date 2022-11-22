@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 const PageNav = ({  }) => {
 	const router = useRouter();
 	return (
-		<div className='gap-3 m-2 flex flex-row justify-between border-2 border-gray-500'>
+		<div className='gap-3 m-2 flex flex-row justify-between items-center rounded border-2 border-gray-500'>
 			<div
 				className={
 					router.pathname === '/'
