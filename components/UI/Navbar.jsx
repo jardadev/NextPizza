@@ -7,7 +7,7 @@ const Navbar = ({ children }) => {
 	const session = useSession();
 
 	return (
-		<div className='grid grid-rows-2'>
+		<div className='h-screen flex flex-col'>
 			<div className='flex justify-between flex-row items-center'>
 				<>
 					<h1 className='text-2xl'>Pizza Time</h1>
@@ -34,7 +34,15 @@ const Navbar = ({ children }) => {
 					{session.status === 'authenticated' && <PageNav />}
 				</>
 			</div>
-			<div className='flex justify-center items-center'>{children}</div>
+			<div className='grid place-items-center p-8'>{children}</div>
+			<footer>
+				<br />
+				<span className='flex justify-center items-center text-sm underline p-1'>
+					<Link href={'https://github.com/jardadev'}>
+						Created by Aaron Johnson
+					</Link>
+				</span>
+			</footer>
 		</div>
 	);
 };
