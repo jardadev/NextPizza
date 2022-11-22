@@ -1,11 +1,11 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
-
+import { signIn } from 'next-auth/react';
+import { FaDiscord, FaGoogle, FaGithub } from 'react-icons/fa';
 const Home = () => {
 	return (
 		<div>
 			<h2 className='text-center font-bold'>Welcome Back!</h2>
 
-			<div className='w-full max-w-xs'>
+			<div className='w-full max-w-xs flex flex-col items-center'>
 				<form class='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
 					<div class='mb-4'>
 						<label
@@ -50,15 +50,30 @@ const Home = () => {
 						</a> */}
 					</div>
 				</form>
-				<p className='text-center'>OR</p>
-				<hr />
-				<div className=''>
-					<ul>
-						Sign in with:
-						<li></li>
-						<li></li>
-						<li></li>
-					</ul>
+				<div>
+					<div className='py-3'>
+						<p className='text-center'>OR</p>
+						<hr />
+					</div>
+					<div
+						className='p-2 flex flex-col text-center cursor-pointer border rounded-2xl justify-center items-center bg-blue-200'
+						onClick={() => signIn()}
+					>
+						<p>Sign in with:</p>
+						<ul className='flex justify-center'>
+							<div className='flex gap-1'>
+								<li>
+									<FaDiscord size={16} />
+								</li>
+								<li>
+									<FaGoogle size={16} />
+								</li>
+								<li>
+									<FaGithub size={16} />
+								</li>
+							</div>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
