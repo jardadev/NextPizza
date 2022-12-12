@@ -1,5 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import AppLayout from '../components/AppLayout';
+import PageNav from '../components/UI/PageNav';
+import Footer from '../components/UI/Footer';
 
 const Dashboard = () => {
 	const router = useRouter();
@@ -74,3 +77,13 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+Dashboard.getLayout = function PageLayout(page) {
+	return (
+		<AppLayout>
+			<PageNav />
+			{page}
+			<Footer />
+		</AppLayout>
+	);
+};
