@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import Layout from '../components/Layout';
+import AppLayout from '../components/AppLayout';
 import { SessionProvider } from 'next-auth/react';
 import Navbar from '../components/UI/Navbar';
 import Footer from '../components/UI/Footer';
@@ -11,11 +11,11 @@ export default function App({
 	return (
 		<>
 			<SessionProvider session={session}>
-				<Layout>
+				<AppLayout>
 					<Navbar />
 					<Component {...pageProps} />
 					<Footer />
-				</Layout>
+				</AppLayout>
 			</SessionProvider>
 		</>
 	);
