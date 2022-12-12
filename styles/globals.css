@@ -6,4 +6,9 @@
 
 html {
 	font-family: 'Nerko One', cursive;
+	padding: 0 1rem
+}
+
+body {
+	min-height: 100vh;
 }

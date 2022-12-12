@@ -13,13 +13,9 @@ datasource db {
 model Customer {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   fullName   String
-  email      String
   address    String?
   city       String?
   state      String?
-  password   String
-  pastOrders Order[]
-  cart       Pizza[]
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
 
@@ -32,7 +28,7 @@ model Order {
   method      String
   total       Int
   isFavorite  Boolean  @default(false)
-  orderedBy   Customer @relation(fields: [orderedById], references: [id])
+  orderedBy   User @relation(fields: [orderedById], references: [id])
   orderedById String   @unique @db.ObjectId
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -50,7 +46,7 @@ model Pizza {
   customerOrder   Order?   @relation(fields: [customerOrderId], references: [id])
   customerOrderId String   @unique @db.ObjectId
 
-  customerCart   Customer? @relation(fields: [customerCartId], references: [id])
+  customerCart   User? @relation(fields: [customerCartId], references: [id])
   customerCartId String?   @db.ObjectId
 
   @@map("pizzas")
@@ -92,6 +88,11 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  address    String?
+  city       String?
+  state      String?
+  pastOrders Order[]
+  cart       Pizza[]
   accounts      Account[]
   sessions      Session[]
 
