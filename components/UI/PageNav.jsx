@@ -4,21 +4,21 @@ import { useRouter } from 'next/router';
 const PageNav = ({}) => {
 	const router = useRouter();
 	return (
-		<div className='gap-3 flex flex-row justify-center items-center px-4'>
+		<div className='w-full gap-3 flex flex-row justify-end px-4 border-b border-grey p-4 text-2xl'>
 			<div
 				className={
-					router.pathname === '/'
-						? 'bg-blue-500'
-						: 'hover:bg-blue-300'
+					router.pathname === '/dashboard'
+						? 'border-b border-blue-500'
+						: 'hover:border-b'
 				}
 			>
-				<Link href={'/'}>Home</Link>
+				<Link href={'/dashboard'}>Home</Link>
 			</div>
 			<div
 				className={
 					router.pathname === '/order'
-						? 'bg-blue-500'
-						: 'hover:bg-blue-300'
+						? 'border-b border-blue-500'
+						: 'hover:border-b'
 				}
 			>
 				<Link href={'/cart'}>Order (0)</Link>
@@ -26,8 +26,8 @@ const PageNav = ({}) => {
 			<div
 				className={
 					router.pathname === '/account'
-						? 'bg-blue-500'
-						: 'hover:bg-blue-300'
+						? 'border-b border-blue-500'
+						: 'hover:border-b'
 				}
 			>
 				<Link href={'/account'}>Account</Link>
@@ -35,8 +35,8 @@ const PageNav = ({}) => {
 			<div
 				className={
 					router.pathname === '/signout'
-						? 'bg-blue-500'
-						: 'hover:bg-blue-300'
+						? 'border-b border-blue-500'
+						: 'hover:border-b'
 				}
 			>
 				<Link href={'/api/auth/signout'}>Logout</Link>
