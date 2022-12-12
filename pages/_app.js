@@ -1,7 +1,9 @@
 import '../styles/globals.css';
-
+import Layout from '../components/Layout';
 import { SessionProvider } from 'next-auth/react';
 import Navbar from '../components/UI/Navbar';
+import Footer from '../components/UI/Footer';
+
 export default function App({
 	Component,
 	pageProps: { session, ...pageProps },
@@ -9,9 +11,11 @@ export default function App({
 	return (
 		<>
 			<SessionProvider session={session}>
-				<Navbar>
+				<Layout>
+					<Navbar />
 					<Component {...pageProps} />
-				</Navbar>
+					<Footer />
+				</Layout>
 			</SessionProvider>
 		</>
 	);
