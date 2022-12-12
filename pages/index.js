@@ -8,12 +8,16 @@ const Home = () => {
 	const session = useSession();
 	const router = useRouter();
 
+	// if User authenticated already, take user to dashboard page.
 	if (session.status === 'authenticated') {
 		router.push('/dashboard');
 	}
+
 	return (
 		<div className='flex flex-col justify-center items-center'>
-			<h2 className='text-6xl text-center font-bold pb-32'>Welcome Back!</h2>
+			<h2 className='text-6xl text-center font-bold pb-32'>
+				Welcome Back!
+			</h2>
 			<LoginForm />
 
 			<div className='flex flex-col w-96'>
