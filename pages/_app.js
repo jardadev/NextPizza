@@ -8,6 +8,16 @@ export default function App({
 	Component,
 	pageProps: { session, ...pageProps },
 }) {
+	if (Component.getLayout) {
+		return Component.getLayout(
+			<>
+				<SessionProvider session={session}>
+					<Component {...pageProps} />
+				</SessionProvider>
+			</>
+		);
+	}
+
 	return (
 		<>
 			<SessionProvider session={session}>
