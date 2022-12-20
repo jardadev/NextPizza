@@ -14,8 +14,8 @@ const Home = () => {
 	}
 
 	return (
-		<div className='flex flex-col justify-center items-center'>
-			<h2 className='text-6xl text-center font-bold pb-32'>
+		<div className='flex flex-col justify-center items-center pb-32'>
+			<h2 className='text-4xl text-center font-bold pb-16'>
 				Welcome Back!
 			</h2>
 			<LoginForm />
