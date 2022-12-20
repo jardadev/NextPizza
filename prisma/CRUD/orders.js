@@ -14,12 +14,12 @@ export const getOrder = async (id) => {
 };
 
 // CREATE
-export const createOrder = async (email, name, birthYear) => {
+export const createOrder = async (data) => {
+	const { items, method, total, orderedById } = data;
+
 	const order = await prisma.order.create({
 		data: {
-			email,
-			name,
-			birthYear,
+			...data,
 		},
 	});
 	return order;
@@ -47,8 +47,6 @@ export const deleteOrder = async (id) => {
 	});
 	return order;
 };
-
-
 
 // // CREATE Order
 // export const createOrder = async (data) => {
