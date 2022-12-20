@@ -6,7 +6,7 @@ import {
 	getAllOrders,
 	getOrder,
 	updateOrder,
-} from '../../lib/prisma'
+} from '../../prisma/CRUD/orders';
 
 export default async function handle(req, res) {
 	try {
