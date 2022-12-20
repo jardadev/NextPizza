@@ -10,18 +10,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Customer {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  fullName   String
-  address    String?
-  city       String?
-  state      String?
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
-
-  @@map("customers")
-}
-
 model Order {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   items       Pizza[]
@@ -30,6 +18,7 @@ model Order {
   isFavorite  Boolean  @default(false)
   orderedBy   User @relation(fields: [orderedById], references: [id])
   orderedById String   @unique @db.ObjectId
+
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
@@ -52,7 +41,7 @@ model Pizza {
   @@map("pizzas")
 }
 
-// Necessary for Next auth
+// Next auth models
 model Account {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
   userId            String
@@ -88,13 +77,18 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
+  
+  // Customer data 
+  fullName   String?
   address    String?
   city       String?
   state      String?
+  zip        Int?
   pastOrders Order[]
   cart       Pizza[]
   accounts      Account[]
-  sessions      Session[]
+  session      Session[]
+
 
   @@map("users")
 }
