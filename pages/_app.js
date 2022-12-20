@@ -1,5 +1,5 @@
 import '../styles/globals.css';
-import AppLayout from '../components/AppLayout';
+import AppLayout from '../components/UI/AppLayout';
 import { SessionProvider } from 'next-auth/react';
 import Navbar from '../components/UI/Navbar';
 import Footer from '../components/UI/Footer';
