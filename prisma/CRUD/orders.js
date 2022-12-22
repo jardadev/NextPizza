@@ -2,8 +2,8 @@ import prisma from '../../lib/prisma';
 
 // READ
 export const getAllOrders = async () => {
-	const users = await prisma.order.findMany({});
-	return users;
+	const orders = await prisma.order.findMany({});
+	return orders;
 };
 
 export const getOrder = async (id) => {
