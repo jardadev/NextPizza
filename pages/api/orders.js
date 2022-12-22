@@ -25,8 +25,8 @@ export default async function handle(req, res) {
 			}
 			case 'POST': {
 				// Create a new order
-				const { email, name, birthYear } = req.body;
-				const order = await createOrder(email, name, birthYear);
+				const { items, method, total, orderedById } = req.body;
+				const order = await createOrder(items, method, total, orderedById);
 				return res.json(order);
 			}
 			case 'PUT': {
