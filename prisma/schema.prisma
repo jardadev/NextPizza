@@ -11,32 +11,33 @@ datasource db {
 }
 
 model Order {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
   items       Pizza[]
   method      String
   total       Int
-  isFavorite  Boolean  @default(false)
-  orderedBy   User @relation(fields: [orderedById], references: [id])
-  orderedById String   @unique @db.ObjectId
+  isFavorite  Boolean @default(false)
 
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  
+  orderedBy   User    @relation(fields: [orderedById], references: [id], name: "OrderedBy")
+  orderedById String  @unique @db.ObjectId
+  userCart    User?   @relation(fields: [userCartId], references: [id], name: "UserCart")
+  userCartId  String? @unique @db.ObjectId
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("orders")
 }
 
 model Pizza {
-  id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  size            String
-  crust           String
-  toppings        String[]
-  price           Int
-  
-  userOrder   Order?   @relation(fields: [userOrderId], references: [id])
-  userOrderId String   @unique @db.ObjectId
+  id       String   @id @default(auto()) @map("_id") @db.ObjectId
+  size     String
+  crust    String
+  toppings String[]
+  price    Int
 
-  userCart   User? @relation(fields: [userCartId], references: [id])
-  userCartId String?   @db.ObjectId
+  userOrder   Order? @relation(fields: [userOrderId], references: [id])
+  userOrderId String @unique @db.ObjectId
 
   @@map("pizzas")
 }
@@ -77,18 +78,19 @@ model User {
   email         String?   @unique
   emailVerified DateTime?
   image         String?
-  
-  // Customer data 
-  fullName   String?
-  address    String?
-  city       String?
-  state      String?
-  zip        Int?
-  pastOrders Order[]
-  cart       Pizza[]
-  accounts      Account[]
-  session      Session[]
 
+  // Customer data 
+  fullName String?
+  address  String?
+  city     String?
+  state    String?
+  zip      Int?
+
+  previousOrders Order[] @relation("OrderedBy")
+  cart           Order?  @relation("UserCart")
+
+  accounts Account[]
+  session  Session[]
 
   @@map("users")
 }
