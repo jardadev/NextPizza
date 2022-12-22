@@ -31,12 +31,12 @@ model Pizza {
   crust           String
   toppings        String[]
   price           Int
-  qty             Int
-  customerOrder   Order?   @relation(fields: [customerOrderId], references: [id])
-  customerOrderId String   @unique @db.ObjectId
+  
+  userOrder   Order?   @relation(fields: [userOrderId], references: [id])
+  userOrderId String   @unique @db.ObjectId
 
-  customerCart   User? @relation(fields: [customerCartId], references: [id])
-  customerCartId String?   @db.ObjectId
+  userCart   User? @relation(fields: [userCartId], references: [id])
+  userCartId String?   @db.ObjectId
 
   @@map("pizzas")
 }
