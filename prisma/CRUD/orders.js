@@ -47,32 +47,3 @@ export const deleteOrder = async (id) => {
 	});
 	return order;
 };
-
-// // CREATE Order
-// export const createOrder = async (data) => {
-// 	await fetch('/api/orders/create', {
-// 		method: 'POST',
-// 		body: JSON.stringify(data),
-// 		headers: {
-// 			'Content-Type': 'application/json; charset=utf8',
-// 		},
-// 	})
-// 		.then(console.log('done'))
-// 		.catch((err) => console.log(err));
-// };
-
-// // READ Order
-// export const getOrder = async () => {
-// 	const { oid } = req.query;
-// 	const res = await fetch(`/api/orders/${oid}`, {
-// 		method: 'GET',
-// 		headers: {
-// 			'Content-Type': 'application/json',
-// 			// 'Content-Type': 'application/x-www-form-urlencoded',
-// 		},
-// 	})
-// 		.then(console.log(res.json()))
-// 		.catch((err) => console.log(err));
-
-// 	return res.status(200).json();
-// };
