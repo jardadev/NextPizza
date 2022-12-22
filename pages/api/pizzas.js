@@ -26,7 +26,7 @@ export default async function handle(req, res) {
 			case 'POST': {
 				// Create a new pizza
 				const { size, crust, toppings, price } = req.body;
-				const pizza = await createPizza(items, method, total, pizzaedById);
+				const pizza = await createPizza(size, crust, toppings, price);
 				return res.json(pizza);
 			}
 			case 'PUT': {
