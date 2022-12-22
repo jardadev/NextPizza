@@ -15,7 +15,7 @@ export const getPizza = async (id) => {
 
 // CREATE
 export const createPizza = async (data) => {
-	const { items, method, total, pizzaedById } = data;
+	const { size, crust, toppings, price, userOrderId } = data;
 
 	const pizza = await prisma.pizza.create({
 		data: {
